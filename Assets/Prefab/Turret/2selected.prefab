@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 5367107656043838574}
   - component: {fileID: 4584543926882451632}
   - component: {fileID: 5706329221302196085}
-  - component: {fileID: 4353237161885142111}
-  - component: {fileID: 2983754827109653203}
-  m_Layer: 0
-  m_Name: TurretBank
-  m_TagString: TurretBank
+  - component: {fileID: 2982880066515349879}
+  m_Layer: 10
+  m_Name: 2selected
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,20 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4353237161885142111
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4527108743846665748}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2983754827109653203
+--- !u!114 &2982880066515349879
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,13 +89,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4527108743846665748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7ed9b0496971af40bd2d9dc902b8375, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d2a30afaf2880e40a5a7ef8b47c80ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMarket: {fileID: 0}
-  bulletPrefab: {fileID: 0}
-  enemyTag: 
-  range: 0
-  fireRate: 0
-  coolDownBank: 0
-  target: {fileID: 0}
+  turretSlot:
+    serializedVersion: 2
+    m_Bits: 512
+  floor:
+    serializedVersion: 2
+    m_Bits: 1
+  turret: {fileID: 0}
+  turretBank: {fileID: 4527108743846665748, guid: 5d594c7d5ff702942b791a7e819a4bb1,
+    type: 3}
+  turretTouch: 0

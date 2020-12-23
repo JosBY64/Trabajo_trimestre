@@ -627,7 +627,7 @@ GameObject:
   - component: {fileID: 100856243}
   m_Layer: 0
   m_Name: PlayerController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -660,12 +660,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 100
   money: 400
+  cartera: 0
   textHP: {fileID: 277261428}
   textMoney: {fileID: 394704990}
   sliderHP: {fileID: 846117445}
   turretPrefab: {fileID: 4527108743846665748, guid: 41ba62df7aadbbb46bae2aa4122adee4,
     type: 3}
-  turretBankPrefab: {fileID: 6019536034186394664, guid: 7d533c6cda0b7f94a97110a6920588ce,
+  turretBankPrefab: {fileID: 4527108743846665748, guid: 633b55580887a444282c2d3d22bf926b,
     type: 3}
   moneyGot: {fileID: 8777277737344061492, guid: c6bc517bdaa46f34cb97d2be1ab3f0eb,
     type: 3}
@@ -3520,7 +3521,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31814
+  m_Name: pb_Mesh14302
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4560,10 +4561,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 215705937}
     m_Modifications:
+    - target: {fileID: 2983754827109653203, guid: ad440e86de700a640bc81ad74d3e744d,
+        type: 3}
+      propertyPath: coolDownBank
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4527108743846665748, guid: ad440e86de700a640bc81ad74d3e744d,
         type: 3}
       propertyPath: m_Name
       value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527108743846665748, guid: ad440e86de700a640bc81ad74d3e744d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5367107656043838574, guid: ad440e86de700a640bc81ad74d3e744d,
         type: 3}

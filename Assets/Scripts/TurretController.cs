@@ -16,43 +16,53 @@ public class TurretController : MonoBehaviour
     public float range = 12f;
     public float fireRate = 1f;
     private float fireCount = 0f;
+    public float coolDownBank = 0f;
 
     public Transform target;
+
+    PlayerController playerCl;
+
+    bool bankWait = true;
     void Start()
     {
         turretCoords = transform.position;
+        playerCl = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
 
     void Update()
     {
 
-        updateTarger();
-
-        if (target == null)
-        {
-            return;
-        }
-
         //Vector3 dir = target.position - transform.position;
-       // Quaternion lookRotation = Quaternion.LookRotation(dir);
+        // Quaternion lookRotation = Quaternion.LookRotation(dir);
 
-
-        if (target != null)
+        if (gameObject.CompareTag("TurretBank") && bankWait == true)
         {
-            Vector3 turretTargetVector = target.position;
-            Debug.DrawLine(turretTargetVector, turretCoords, Color.green);
-            //Debug.Log("LLEGA");
-
-            if (fireCount <= 0F)
-            {
-                shoot();
-                fireCount = 1f / fireRate;
-            }
-            fireCount -= Time.deltaTime;
+            StartCoroutine("BankTime");
+            bankWait = false;
         }
-   
-        
+
+        if (gameObject.CompareTag("Turret"))
+        {
+            updateTarger();
+
+            if (target != null)
+            {
+                Vector3 turretTargetVector = target.position;
+                Debug.DrawLine(turretTargetVector, turretCoords, Color.green);
+                //Debug.Log("LLEGA");
+
+                if (fireCount <= 0F)
+                {
+                    shoot();
+                    fireCount = 1f / fireRate;
+                }
+                fireCount -= Time.deltaTime;
+
+            }
+        }
+
+
     }
 
     void updateTarger()
@@ -97,6 +107,29 @@ public class TurretController : MonoBehaviour
 
         
     }
+
+    IEnumerator BankTime()
+    {
+        Debug.Log ("cool empieza siendo : " + coolDownBank);
+
+        if (coolDownBank <= 0)
+        {
+            playerCl.bank(10);
+            bankWait = true;
+            coolDownBank += 10;
+        }
+        else
+        {
+            coolDownBank--;
+            Debug.Log("cooldown es de : " + coolDownBank);
+        }
+
+        yield return new WaitForSeconds(coolDownBank);
+
+       
+    }
+
+
 
 
 }

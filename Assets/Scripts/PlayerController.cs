@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public int life = 100;
     public int money = 400;
-    private int cartera = 0;
+    public int cartera = 0;
 
     public Text textHP;
     public Text textMoney;
@@ -50,8 +50,6 @@ public class PlayerController : MonoBehaviour
             cartera = money;
         }
 
- 
-
     }
 
     public void LifeSteal(int damage)
@@ -76,5 +74,10 @@ public class PlayerController : MonoBehaviour
             Instantiate(turretBankPrefab, transform.position, Quaternion.identity);
         }
 
+    }
+    public void bank(int ganancia)
+    {
+        cartera += ganancia;
+        Debug.Log("+10");
     }
 }

@@ -12,11 +12,6 @@ public class SlotCrontoller : MonoBehaviour
     }
 
    
-    void Update()
-    {
-        
-    }
-
     public void slotState ()
     {
         isFull = true;
