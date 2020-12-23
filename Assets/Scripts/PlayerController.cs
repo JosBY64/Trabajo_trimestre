@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
     }
     public void bank(int ganancia)
     {
-        cartera += ganancia;
-        Debug.Log("+10");
+       money += ganancia;
+        //Debug.Log("la ganancia es de : " + ganancia);
     }
 }

@@ -38,6 +38,7 @@ public class TurretController : MonoBehaviour
 
         if (gameObject.CompareTag("TurretBank") && bankWait == true)
         {
+            Debug.Log("entra a la ecorutina");
             StartCoroutine("BankTime");
             bankWait = false;
         }
@@ -110,23 +111,19 @@ public class TurretController : MonoBehaviour
 
     IEnumerator BankTime()
     {
-        Debug.Log ("cool empieza siendo : " + coolDownBank);
-
-        if (coolDownBank <= 0)
-        {
-            playerCl.bank(10);
-            bankWait = true;
-            coolDownBank += 10;
-        }
-        else
-        {
-            coolDownBank--;
-            Debug.Log("cooldown es de : " + coolDownBank);
-        }
-
+         Debug.Log ("cool empieza siendo : " + coolDownBank);
         yield return new WaitForSeconds(coolDownBank);
 
-       
+
+            playerCl.bank(10);
+            bankWait = true;
+            //coolDownBank += 10;
+
+         if (coolDownBank < 10)
+        {
+            coolDownBank = 10;
+        }
+
     }
 
 
