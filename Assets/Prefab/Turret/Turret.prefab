@@ -111,5 +111,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2288858987138330056, guid: 8145db5d749b82c4b8a47121a4362fff,
     type: 3}
   enemyTag: Enemy
+  range: 12
   fireRate: 0.7
   target: {fileID: 0}

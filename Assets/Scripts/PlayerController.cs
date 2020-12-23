@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     //public Button butonTurret;
 
     public GameObject turretPrefab;
+    public GameObject turretBankPrefab;
     public GameObject moneyGot;
 
     public Transform moneyGotPosition;
@@ -40,12 +41,12 @@ public class PlayerController : MonoBehaviour
 
     private void moneyUpdate()
     {
+       
         textMoney.text = "Dinero$ " + money;
         if (cartera < money)
         {
             //Debug.Log("DINERO + 50");
             Instantiate(moneyGot, moneyGotPosition.position, Quaternion.identity, moneyGotPosition);
-
             cartera = money;
         }
 
@@ -66,5 +67,14 @@ public class PlayerController : MonoBehaviour
             Instantiate(turretPrefab, transform.position, Quaternion.identity);
         }
    
+    }
+    public void buyBankTurret()
+    {
+        if (money >= 120)
+        {
+            money -= 120;
+            Instantiate(turretBankPrefab, transform.position, Quaternion.identity);
+        }
+
     }
 }

@@ -10,6 +10,7 @@ public class TurretSlectedController : MonoBehaviour
 
     GameObject slot;
     public GameObject turret;
+    public GameObject turretBank;
 
     public bool turretTouch = false;
 
@@ -28,7 +29,7 @@ public class TurretSlectedController : MonoBehaviour
         {
             RaycastHit hit;
 
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, floor)) ;
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, floor)) 
             {
                 transform.position = new Vector3(hit.point.x, transform.position.y, hit.point.z);
                 //Debug.Log("1");
@@ -46,14 +47,28 @@ public class TurretSlectedController : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0) && slotCl.isFull == false)
                 {
-                    Instantiate(turret, turretPosition, Quaternion.identity);
-                    turretTouch = false;
+                    if (turret != null)
+                    {
+                        Instantiate(turret, turretPosition, Quaternion.identity);
+                        turretTouch = false;
 
-                    Debug.Log("llega al &&");
-                    slotCl.slotState();
+                        // Debug.Log("llega al &&");
+                        slotCl.slotState();
 
-                    Destroy(gameObject);
+                        Destroy(gameObject);
+                    }
+                    if (turretBank != null)
+                    {
+                        Instantiate(turretBank, turretPosition, Quaternion.identity);
+                        turretTouch = false;
+
+                        // Debug.Log("llega al &&");
+                        slotCl.slotState();
+
+                        Destroy(gameObject);
+                    }
                 }
+
             }
         }
     }

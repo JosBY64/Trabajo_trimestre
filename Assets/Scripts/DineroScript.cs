@@ -19,7 +19,6 @@ public class DineroScript : MonoBehaviour
         if (elapsedTime <= 0)
         {
             time++;
-            //Debug.Log(time);
             elapsedTime = 1;
             textDie();
         }
