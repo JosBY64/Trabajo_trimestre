@@ -32,9 +32,9 @@ public class EnemyGenerator : MonoBehaviour
 
         yield return new WaitForSeconds(spawnTime);
 
-        if (spawnTime > 0.9)
+        if (spawnTime > 0.1)
         {
-            spawnTime -= 0.7f ;
+            spawnTime -= 0.5f ;
         }
         generated = true;
     }

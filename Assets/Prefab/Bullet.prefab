@@ -108,4 +108,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretCl: {fileID: 0}
   bulletSpeed: 20
-  bulletDmg: 2
+  bulletDmg: 4
