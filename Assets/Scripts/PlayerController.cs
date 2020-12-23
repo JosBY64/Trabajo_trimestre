@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public int life = 100;
@@ -37,6 +37,11 @@ public class PlayerController : MonoBehaviour
     {
         textHP.text = "Vida: " + life;
         sliderHP.value = life; 
+        if (life <= 0)
+        {
+            Time.timeScale = 0f;
+            SceneManager.LoadScene(0);
+        }
     }
 
     private void moneyUpdate()

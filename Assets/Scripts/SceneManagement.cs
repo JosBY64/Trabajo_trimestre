@@ -28,7 +28,7 @@ public void Play()
 
     public void Credits()
     {
-        SceneManager.LoadScene("EscenaCreditos");
+        SceneManager.LoadScene("SceneCredits");
     }
 
     public void MainMenu()
