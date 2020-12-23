@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     PlayerController playerCl;
 
     public int damage;
+    public float punchPoints = 5;
      
     void Start()
     {
@@ -37,6 +38,19 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject.CompareTag("EnemyEnd"))
         {
             playerCl.LifeSteal(damage);
+            Destroy(gameObject);
+        }
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            
+        }
+    }
+    public void EnemyHpLost(int daño)
+    {
+        punchPoints -= daño;
+        if (punchPoints <= 0)
+        {
+            playerCl.money += 50;
             Destroy(gameObject);
         }
     }

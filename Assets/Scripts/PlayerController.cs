@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public int life = 100;
-    public int money = 100;
+    public int money = 400;
     private int cartera = 0;
 
     public Text textHP;
@@ -60,8 +60,11 @@ public class PlayerController : MonoBehaviour
 
     public void buyTurret()
     {
-
-        Instantiate(turretPrefab, transform.position, Quaternion.identity);
+        if (money >= 300)
+        {
+            money -= 300;
+            Instantiate(turretPrefab, transform.position, Quaternion.identity);
+        }
    
     }
 }

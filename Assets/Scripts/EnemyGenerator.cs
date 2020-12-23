@@ -7,32 +7,35 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField]
     GameObject enemyPrefab;
 
-    private float elapsedTime = 1;
-    private int time = 0;
-    
- 
-   
+    public float spawnTime = 7;
+
+    bool generated = true;
+    private void Start()
+    {
+        
+    }
     void Update()
     {
-
-      if (elapsedTime <= 0)
+     if (generated == true)
         {
-            time++;
-            //Debug.Log(time);
-            elapsedTime = 1;
-            enemySpawn();
+            StartCoroutine("enemySpawn");
+            generated = false;
         }
-
-        elapsedTime -= Time.deltaTime;
-
     }
 
 
-    private void enemySpawn()
+    IEnumerator enemySpawn()
     {
-        if (time % 5 == 0)
+        Debug.Log(spawnTime);
+
+        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+
+        yield return new WaitForSeconds(spawnTime);
+
+        if (spawnTime > 0.9)
         {
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            spawnTime -= 0.7f ;
         }
+        generated = true;
     }
 }

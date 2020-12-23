@@ -13,7 +13,7 @@ public class TurretController : MonoBehaviour
     //private bool checkEnemy = false;
     public string enemyTag = "Enemy";
 
-    private float range = 8f;
+    public float range = 12f;
     public float fireRate = 1f;
     private float fireCount = 0f;
 
